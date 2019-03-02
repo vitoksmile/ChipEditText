@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity(), ChipEditTextLayout.Interaction {
 		// Notify edit text
 		chipEditText.setChips(users.map { Chip(it) })
 		return true
-    }
+	}
 	
 	override fun onRemoveClicked(chip: Chip): Boolean {
 		users.remove(chip.text)
