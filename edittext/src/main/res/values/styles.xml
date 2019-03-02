@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseChipStyle" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="chipCornerRadius">8dp</item>
+        <item name="iconStartPadding">4dp</item>
+        <item name="android:clickable">false</item>
+        <item name="chipIconSize">24dp</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="closeIconVisible">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="chipBackgroundColor">@color/chipBackgroundColor</item>
+        <item name="chipStrokeColor">@color/chipStrokeColor</item>
+    </style>
+
+</resources>
