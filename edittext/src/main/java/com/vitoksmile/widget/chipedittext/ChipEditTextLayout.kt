@@ -107,7 +107,6 @@ class ChipEditTextLayout(context: Context, attrs: AttributeSet? = null) :
 
                 setOnCloseIconClickListener {
                     if (interaction?.onRemoveClicked(chip) == true) {
-                        group.layoutTransition = LayoutTransition()
                         group.removeView(this)
                     }
                 }
