@@ -54,27 +54,27 @@ class MainActivity : AppCompatActivity(), ChipEditTextLayout.Interaction {
 	private val users = linkedSetOf<String>()
 	
 	private fun initChips() {
-        chipEditText.interaction = this
-    }
+		chipEditText.interaction = this
+	}
 	
 	override fun onDoneClicked(text: String): Boolean {
-        if (text.isEmpty()) {
-            Toast.makeText(this, "Username should be not empty", Toast.LENGTH_SHORT).show()
-            return false
-        }
-
-        // Add new user
-        users.add(text)
-
-        // Notify edit text
-        chipEditText.setChips(users.map { Chip(it) })
-        return true
+		if (text.isEmpty()) {
+			Toast.makeText(this, "Username should be not empty", Toast.LENGTH_SHORT).show()
+			return false
+		}
+		
+		// Add new user
+		users.add(text)
+		
+		// Notify edit text
+		chipEditText.setChips(users.map { Chip(it) })
+		return true
     }
-
-    override fun onRemoveClicked(chip: Chip): Boolean {
-        users.remove(chip.text)
-        return true
-    }
+	
+	override fun onRemoveClicked(chip: Chip): Boolean {
+		users.remove(chip.text)
+		return true
+	}
 }
 ```
 
