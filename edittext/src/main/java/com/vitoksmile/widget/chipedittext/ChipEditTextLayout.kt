@@ -31,7 +31,7 @@ class ChipEditTextLayout(context: Context, attrs: AttributeSet? = null) :
     private val chipGroup: ChipGroup?
         get() = getChildAt(0) as? ChipGroup
 
-    private val editText: TextInputEditText by lazy {
+    val editText: TextInputEditText by lazy {
         TextInputEditText(context)
     }
 
@@ -45,6 +45,12 @@ class ChipEditTextLayout(context: Context, attrs: AttributeSet? = null) :
         set(value) {
             field = value
             editText.interaction = field
+        }
+
+    var chipLayout: Int = R.layout.chip
+        set(value) {
+            field = value
+            update()
         }
 
     /**
@@ -63,6 +69,7 @@ class ChipEditTextLayout(context: Context, attrs: AttributeSet? = null) :
         }.also { addView(it) }
 
         getAttributes(attrs, R.styleable.ChipEditTextLayout) {
+            chipLayout = getResourceId(R.styleable.ChipEditTextLayout_chipLayout, chipLayout)
             hint = getString(R.styleable.ChipEditTextLayout_hint)
         }
 
@@ -120,5 +127,5 @@ class ChipEditTextLayout(context: Context, attrs: AttributeSet? = null) :
     }
 
     private fun createChip(): com.google.android.material.chip.Chip =
-            inflater.inflate(R.layout.chip, this, false) as com.google.android.material.chip.Chip
+            inflater.inflate(chipLayout, this, false) as com.google.android.material.chip.Chip
 }

@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), ChipEditTextLayout.Interaction {
     override fun onDoneClicked(text: String): Boolean {
         if (text.isEmpty()) {
             Toast.makeText(this, "Username should be not empty", Toast.LENGTH_SHORT).show()
+            // Return false to don't hide keyboard
             return false
         }
 
@@ -29,11 +30,15 @@ class MainActivity : AppCompatActivity(), ChipEditTextLayout.Interaction {
 
         // Notify edit text
         chipEditText.setChips(users.map { Chip(it) })
+
+        // Return true to hide keyboard
         return true
     }
 
     override fun onRemoveClicked(chip: Chip): Boolean {
         users.remove(chip.text)
+
+        // Return true to add the custom_chip to layout
         return true
     }
 }
